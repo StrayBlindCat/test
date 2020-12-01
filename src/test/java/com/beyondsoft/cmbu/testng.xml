@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="baidu">
+        <classes>
+            <class name="com.beyondsoft.cmbu.testCase.TaoBaoTest">
+                <methods>
+                    <include name="checkShoppingCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

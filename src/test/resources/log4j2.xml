@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" monitorInterval="30">
+    <!--先定义所有的appender -->
+    <appenders>
+        <!--这个输出控制台的配置 -->
+        <console name="Console"  target="SYSTEM_OUT">
+            <!--输出日志的格式 -->
+            <PatternLayout
+                    pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %logger{36} - %msg%n"/>
+        </console>
+
+        <!--定义输出到指定位置的文件 -->
+        <File name="log" fileName="log4j2/log.log" append="true">
+            <PatternLayout
+                    pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %logger{36} - %msg%n"/>
+        </File>
+
+        <!-- 这个会打印出所有的info及以下级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <RollingFile name="RollingFileInfo" fileName="log4j2/logs/info.log"
+                     filePattern="/jpm/log4j2/logs/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+            <ThresholdFilter level="info" onMatch="ACCEPT"
+                             onMismatch="DENY"/>
+            <PatternLayout
+                    pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+
+        <RollingFile name="RollingFileError" fileName="log4j2/logs/error.log"
+                     filePattern="/jpm/log4j2/logs/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
+            <ThresholdFilter level="error" onMatch="ACCEPT"
+                             onMismatch="DENY"/>
+            <PatternLayout
+                    pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+    </appenders>
+
+    <!--只有定义了logger并引入的appender，appender才会生效 -->
+    <loggers>
+        <!--过滤掉spring和mybatis的一些无用的DEBUG信息 -->
+        <root level="INFO">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="log"/>
+            <appender-ref ref="RollingFileInfo"/>
+            <appender-ref ref="RollingFileError"/>
+        </root>
+    </loggers>
+
+</configuration>

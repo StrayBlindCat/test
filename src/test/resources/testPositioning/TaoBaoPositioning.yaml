@@ -1,0 +1,4 @@
+usernameInput: 'css==input[name="fm-login-id"]'
+passwordInput: 'css==input[name="fm-login-password"]'
+submitButton: 'css==button[class="fm-button fm-submit password-login"]'
+ShoppingCartLabel: 'css==a[id="mc-menu-hd"]'
