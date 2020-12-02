@@ -1,10 +1,8 @@
 package com.beyondsoft.cmbu.businessflow;
 
-import com.beyondsoft.cmbu.bean.myenum.BrowerName;
-import com.beyondsoft.cmbu.bean.pageObject.taobao.Login.HomePage;
-import com.beyondsoft.cmbu.bean.pageObject.taobao.Login.LoginPage;
+import com.beyondsoft.cmbu.bean.pageObject.HomePage;
+import com.beyondsoft.cmbu.bean.pageObject.LoginPage;
 import com.beyondsoft.cmbu.common.PropertiesFileRead;
-import com.beyondsoft.cmbu.utils.WebDriverUtils;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

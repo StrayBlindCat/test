@@ -37,6 +37,7 @@ public class WebDriverUtils {
 //                chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments(" --ignore-certificate-errors");
                 chromeOptions.addArguments("–no-sandbox");
+                chromeOptions.addArguments("–lang=zh-CN");
                 LOGGER.info("CHROME Browser set up");
                 driver = new ChromeDriver(chromeOptions);
                 LOGGER.info("CHROME Open  Browser");

@@ -1,4 +1,4 @@
-package com.beyondsoft.cmbu.bean.pageObject.taobao.Login;
+package com.beyondsoft.cmbu.bean.pageObject;
 
 import com.beyondsoft.cmbu.bean.BasePage;
 import com.beyondsoft.cmbu.common.YamlFileRead;
